@@ -1,8 +1,7 @@
 /* ═══════════════════════════════
    CONFIG
 ═══════════════════════════════ */
-const GROQ_KEY   = typeof ENV !== 'undefined' ? ENV.GROQ_KEY : ""; // env.js dan olinadi
-const GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions";
+const GROQ_URL     = "/api/chat";
 const TEXT_MODEL   = "llama-3.3-70b-versatile";
 const VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
 
@@ -322,8 +321,7 @@ async function send(){
       const res = await fetch(GROQ_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${GROQ_KEY}`
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           model: VISION_MODEL,
@@ -342,8 +340,7 @@ async function send(){
       const res = await fetch(GROQ_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${GROQ_KEY}`
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           model: TEXT_MODEL,
@@ -372,7 +369,6 @@ async function send(){
     } else if(errMsg.includes("401") || errMsg.includes("invalid_api_key")){
       errMsg = "API kalit noto'g'ri. Tekshirib ko'ring.";
     }
-    if (!GROQ_KEY) errMsg = "API kalit topilmadi! (env.js yoki .env ni tekshiring)";
     addSystemMsg("⚠️ Xatolik: " + errMsg);
     console.error(err);
   }
