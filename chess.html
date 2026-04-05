@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>PixO Chess</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="chess.css">
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- ════════ HOME ════════ -->
+<div id="homeScreen">
+  <div class="home-wrap">
+    <div class="home-crown">♛</div>
+    <div class="home-eye">Klassik Shaxmat</div>
+    <div class="home-title">Pix<em>O</em><br>Chess</div>
+    <div class="hdiv"><span>✦</span></div>
+    <p class="home-desc">Ikki o'yinchi uchun to'liq offline shaxmat.<br>Bir ekranda, navbatma-navbat.</p>
+    <div class="inputs">
+      <div class="icard">
+        <div class="ibadge w">♕</div>
+        <input type="text" id="p1In" placeholder="Oq o'yinchi ismi" maxlength="16" autocomplete="off"/>
+        <span class="itag">OQ</span>
+      </div>
+      <div class="icard">
+        <div class="ibadge b">♛</div>
+        <input type="text" id="p2In" placeholder="Qora o'yinchi ismi" maxlength="16" autocomplete="off"/>
+        <span class="itag">QORA</span>
+      </div>
+    </div>
+    <button class="btn-start" onclick="startGame()">▶ O'YINNI BOSHLASH</button>
+    <a class="btn-games" href="game.html">🎮 Asosiy Sahifa</a>
+    <div class="home-note">Rokirovka · En Passant · Shoh Mat · Piyoda almashish</div>
+  </div>
+</div>
+
+<!-- ════════ GAME ════════ -->
+<div id="gameScreen">
+
+  <!-- HEADER: logo + 3 buttons in ONE LINE -->
+  <div class="g-header">
+    <div class="g-logo">♟ PixO Chess</div>
+    <div class="g-btns">
+      <button class="g-btn" onclick="undoMove()">↩ Bekor</button>
+      <button class="g-btn" onclick="confirmNew()">↺ Yangi</button>
+      <button class="g-btn gb-home" onclick="goHome()">⌂ Asosiy</button>
+    </div>
+  </div>
+
+  <div class="g-body">
+
+    <!-- Board column -->
+    <div class="board-col">
+
+      <!-- Black strip -->
+      <div class="p-strip" id="bStrip">
+        <div class="ps-l">
+          <div class="ps-av b">♛</div>
+          <div class="ps-info">
+            <div class="ps-name" id="bNameEl">Qora</div>
+            <div class="ps-side">Qora donalar</div>
+          </div>
+        </div>
+        <div class="ps-r">
+          <div class="ps-cap" id="capBlack"></div>
+          <div class="tdot"></div>
+        </div>
+      </div>
+
+      <!-- Board -->
+      <div class="board-wrap">
+        <div class="crd-row" id="cTop"></div>
+        <div class="brd-mid">
+          <div class="rk-col" id="rkL"></div>
+          <div id="board"></div>
+          <div class="rk-col" id="rkR"></div>
+        </div>
+        <div class="crd-row" id="cBot"></div>
+      </div>
+
+      <!-- White strip -->
+      <div class="p-strip" id="wStrip">
+        <div class="ps-l">
+          <div class="ps-av w">♕</div>
+          <div class="ps-info">
+            <div class="ps-name" id="wNameEl">Oq</div>
+            <div class="ps-side">Oq donalar</div>
+          </div>
+        </div>
+        <div class="ps-r">
+          <div class="ps-cap" id="capWhite"></div>
+          <div class="tdot"></div>
+        </div>
+      </div>
+
+    </div><!-- /board-col -->
+
+    <!-- Side panel -->
+    <div class="side-panel">
+      <div id="statusMsg">♙ Oq navbatda</div>
+      <div class="s-box">
+        <div class="s-title">Yurishlar tarixi</div>
+        <div id="moveList"></div>
+      </div>
+      <div class="act-btns">
+        <button class="abt abt-p" onclick="undoMove()">↩ Bekor</button>
+        <button class="abt abt-s" onclick="confirmNew()">↺ Yangi</button>
+      </div>
+    </div>
+
+  </div><!-- /g-body -->
+</div>
+
+<!-- Promo modal -->
+<div class="modal-bg" id="promoModal">
+  <div class="mbox">
+    <div class="micn">♟</div>
+    <div class="mttl">Almashish</div>
+    <div class="msub">Piyoda so'nggi qatorga yetdi!</div>
+    <div class="promo-grid" id="promoGrid"></div>
+  </div>
+</div>
+
+<!-- Confirm new -->
+<div class="modal-bg" id="cfModal">
+  <div class="mbox">
+    <div class="micn">⚠️</div>
+    <div class="mttl">Yangi o'yin?</div>
+    <div class="msub">Joriy o'yin yo'qoladi.Davom ettirishni xohlaysizmi?</div>
+    <div class="mbtns">
+      <button class="mbtn mbtn-p" onclick="doNew()">Ha, boshlash</button>
+      <button class="mbtn mbtn-s" onclick="closeCf()">Bekor</button>
+    </div>
+  </div>
+</div>
+
+<!-- Game over -->
+<div class="modal-bg" id="goModal">
+  <div class="mbox">
+    <div class="micn" id="goIcon">♛</div>
+    <div class="mttl" id="goTitle">Shoh mat!</div>
+    <div class="msub" id="goSub"></div>
+    <div class="mbtns">
+      <button class="mbtn mbtn-p" onclick="doNew()">↺ Qayta o'yna</button>
+      <button class="mbtn mbtn-s" onclick="goHome()">⌂ Asosiy sahifa</button>
+    </div>
+  </div>
+</div>
+
+<script src="chess.js"></script>
+</body>
+</html>

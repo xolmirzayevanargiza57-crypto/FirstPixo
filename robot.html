@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixo Game</title>
+  <link rel="stylesheet" href="robot.css">
+</head>
+<body>
+  <div class="screen" id="menuScreen">
+  <div class="menu-title">⚙ Pixo ROBOT</div>
+  <div class="menu-sub">FIGHTER &nbsp;v1</div>
+  <div class="menu-fighters">
+    <svg width="52" height="68" viewBox="0 0 36 52">
+      <ellipse cx="18" cy="50" rx="10" ry="2" fill="#00e5ff08"/>
+      <rect x="8" y="43" width="8" height="4" rx="1.5" fill="#062a40"/>
+      <rect x="20" y="43" width="8" height="4" rx="1.5" fill="#062a40"/>
+      <rect x="9" y="33" width="6" height="12" rx="2" fill="#0a4a6e"/>
+      <rect x="21" y="33" width="6" height="12" rx="2" fill="#0a4a6e"/>
+      <circle cx="12" cy="33" r="2.5" fill="#0d6e9e"/>
+      <circle cx="24" cy="33" r="2.5" fill="#0d6e9e"/>
+      <rect x="7" y="17" width="22" height="18" rx="3" fill="#0d6e9e"/>
+      <rect x="10" y="20" width="16" height="10" rx="2" fill="#051e30"/>
+      <circle cx="14" cy="24" r="1.5" fill="#00e5ff"/>
+      <circle cx="18" cy="24" r="1.5" fill="#4ade80"/>
+      <circle cx="22" cy="24" r="1.5" fill="#f5a623"/>
+      <rect x="11" y="27" width="14" height="2" rx="1" fill="#0d6e9e"/>
+      <rect x="11" y="27" width="10" height="2" rx="1" fill="#00e5ff" opacity=".5"/>
+      <rect x="9" y="33" width="18" height="3" rx="1.5" fill="#084e72"/>
+      <circle cx="7" cy="20" r="3" fill="#0a5c8a"/>
+      <circle cx="29" cy="20" r="3" fill="#0a5c8a"/>
+      <rect x="2" y="18" width="6" height="13" rx="2.5" fill="#0d6e9e"/>
+      <rect x="1" y="29" width="8" height="5" rx="2" fill="#0a5c8a"/>
+      <rect x="28" y="15" width="6" height="13" rx="2.5" fill="#0d6e9e"/>
+      <rect x="27" y="25" width="9" height="6" rx="2" fill="#00e5ff"/>
+      <rect x="15" y="13" width="6" height="5" rx="1.5" fill="#0a5c8a"/>
+      <rect x="8" y="4" width="20" height="14" rx="4" fill="#0d6e9e"/>
+      <rect x="16" y="1" width="4" height="4" rx="1" fill="#0a5c8a"/>
+      <circle cx="18" cy="1" r="1.8" fill="#00e5ff"/>
+      <rect x="10" y="7" width="16" height="6" rx="2" fill="#001020"/>
+      <rect x="11" y="8.5" width="5" height="3" rx="1.5" fill="#00e5ff"/>
+      <rect x="20" y="8.5" width="5" height="3" rx="1.5" fill="#00e5ff"/>
+      <rect x="11" y="14.5" width="14" height="2.5" rx="1" fill="#062a40"/>
+    </svg>
+    <div class="vs-txt">VS</div>
+    <svg width="52" height="68" viewBox="0 0 36 52">
+      <ellipse cx="18" cy="50" rx="10" ry="2" fill="#ff4d6d08"/>
+      <rect x="8" y="43" width="8" height="4" rx="1.5" fill="#3a0412"/>
+      <rect x="9" y="33" width="6" height="12" rx="2" fill="#5a0820"/>
+      <rect x="21" y="33" width="6" height="12" rx="2" fill="#5a0820"/>
+      <rect x="20" y="43" width="8" height="4" rx="1.5" fill="#3a0412"/>
+      <circle cx="12" cy="33" r="2.5" fill="#8b1a2e"/>
+      <circle cx="24" cy="33" r="2.5" fill="#8b1a2e"/>
+      <rect x="7" y="17" width="22" height="18" rx="3" fill="#8b1a2e"/>
+      <rect x="10" y="20" width="16" height="10" rx="2" fill="#200008"/>
+      <circle cx="14" cy="24" r="1.5" fill="#ff4d6d"/>
+      <circle cx="18" cy="24" r="1.5" fill="#ff006e"/>
+      <circle cx="22" cy="24" r="1.5" fill="#f5a623"/>
+      <rect x="11" y="27" width="14" height="2" rx="1" fill="#5a0820"/>
+      <rect x="11" y="27" width="11" height="2" rx="1" fill="#ff4d6d" opacity=".5"/>
+      <rect x="9" y="33" width="18" height="3" rx="1.5" fill="#6a0c24"/>
+      <circle cx="7" cy="20" r="3" fill="#72122c"/>
+      <circle cx="29" cy="20" r="3" fill="#72122c"/>
+      <rect x="2" y="18" width="6" height="13" rx="2.5" fill="#8b1a2e"/>
+      <rect x="1" y="28" width="9" height="6" rx="2" fill="#ff4d6d"/>
+      <rect x="28" y="18" width="6" height="13" rx="2.5" fill="#8b1a2e"/>
+      <rect x="27" y="29" width="8" height="5" rx="2" fill="#72122c"/>
+      <rect x="15" y="13" width="6" height="5" rx="1.5" fill="#72122c"/>
+      <rect x="8" y="4" width="20" height="14" rx="4" fill="#8b1a2e"/>
+      <rect x="16" y="1" width="4" height="4" rx="1" fill="#72122c"/>
+      <circle cx="18" cy="1" r="1.8" fill="#ff4d6d"/>
+      <rect x="10" y="7" width="16" height="6" rx="2" fill="#100005"/>
+      <rect x="11" y="8.5" width="5" height="3" rx="1.5" fill="#ff2244"/>
+      <rect x="20" y="8.5" width="5" height="3" rx="1.5" fill="#ff2244"/>
+      <rect x="11" y="14.5" width="14" height="2.5" rx="1" fill="#3a0412"/>
+    </svg>
+  </div>
+
+  <div class="menu-col">
+    <div class="name-box">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/></svg>
+      <input id="playerNameInput" maxlength="14" placeholder="Pilot ismini kiriting..." autocomplete="off" spellcheck="false"/>
+    </div>
+    <div class="diff-row">
+      <button class="diff-btn active-easy" data-diff="easy">🟢 OSON</button>
+      <button class="diff-btn" data-diff="medium">🟡 O'RTA</button>
+      <button class="diff-btn" data-diff="hard">🔴 QIYIN</button>
+    </div>
+    <div class="rating-card">
+      <div class="r-row">
+        <div class="r-item"><div class="r-lbl">REYTING</div><div class="r-val gold" id="mRating">1000</div></div>
+        <div class="r-item"><div class="r-lbl">G'ALABA</div><div class="r-val green" id="mWins">0</div></div>
+        <div class="r-item"><div class="r-lbl">YUTQAZISH</div><div class="r-val red" id="mLoss">0</div></div>
+        <div class="r-item"><div class="r-lbl">JANGLAR</div><div class="r-val blue" id="mTotal">0</div></div>
+      </div>
+    </div>
+    <div class="stats-extra">
+      <div class="stat-chip"><span class="sc-lbl">🏆 ENG YAXSHI</span><span class="sc-val gold" id="mBest">0</span></div>
+      <div class="stat-chip"><span class="sc-lbl">🔥 STREAK</span><span class="sc-val purple" id="mStreak">0</span></div>
+      <div class="stat-chip"><span class="sc-lbl">⭐ MAX</span><span class="sc-val" style="color:#f5a623" id="mMaxStreak">0</span></div>
+    </div>
+    <div class="sound-row">
+      <button class="sound-toggle on" id="soundToggleMenu">🔊 OVOZ YOQIQ</button>
+    </div>
+    <button class="menu-btn primary" id="menuPlayBtn">▶ &nbsp;JANG BOSHLASH</button>
+    <button class="menu-btn home" onclick="window.location.href='game.html'">🏠 &nbsp;Asosiy Sahifa</button>
+    <button class="menu-btn warn" id="menuClearBtn">🗑 &nbsp;Reytingni tozalash</button>
+  </div>
+</div>
+
+<div id="gameScreen" class="hidden">
+  <div id="hud">
+    <div class="fhud">
+      <span class="fname p1" id="p1name">SEN</span>
+      <div class="bar-bg"><div class="bar hp1" id="h1" style="width:100%"></div></div>
+      <div class="sp-bg"><div class="sp" id="s1" style="width:0%"></div></div>
+      <span id="diffBadge" class="db-easy">OSON</span>
+    </div>
+    <div style="text-align:center;padding:0 4px;flex-shrink:0;">
+      <div id="tbox">60</div>
+      <div id="rtxt">ROUND 1</div>
+    </div>
+    <div class="fhud right">
+      <span class="fname p2">🤖 BOT</span>
+      <div class="bar-bg"><div class="bar hp2" id="h2" style="width:100%"></div></div>
+      <div class="sp-bg"><div class="sp sp2" id="s2" style="width:0%"></div></div>
+    </div>
+    <div class="hud-btns">
+      <button class="hud-btn" id="fsBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </button>
+      <button class="hud-btn pbtn" id="pauseBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <button class="hud-btn" id="backBtn" style="background:rgba(255,77,109,.08);border-color:rgba(255,77,109,.2);">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+    </div>
+  </div>
+  <canvas id="c"></canvas>
+  <div id="controls">
+    <div class="cside">
+      <div class="cb mv" id="cb-left"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></div>
+      <div class="cb mv" id="cb-right"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="cb mv" id="cb-up"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg></div>
+    </div>
+    <div class="cside">
+      <div class="cb bl" id="cb-block"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="cb at" id="cb-punch"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
+      <div class="cb at" id="cb-kick"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v7"/><path d="M9 13l-3 5"/><path d="M12 13l4 5"/><path d="M6 18h4"/><path d="M14 18h4"/></svg></div>
+      <div class="cb sp" id="cb-super"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+    </div>
+  </div>
+  <div id="hint">KB: ←→↑ harakat | A musht | S tepki | D super | F blok | P pauza</div>
+</div>
+
+<div id="countdownOverlay" class="hidden">
+  <div id="countdownTxt">3</div>
+</div>
+
+<div id="pauseOverlay" class="hidden">
+  <div class="pause-title">⏸ PAUZA</div>
+  <div class="pause-menu">
+    <button class="p-btn resume" id="resumeBtn">▶ DAVOM ETISH</button>
+    <button class="p-btn" id="soundToggleGame">🔊 OVOZ YOQIQ</button>
+    <button class="p-btn quit" id="quitBtn">✕ MENYUGA QAYTISH</button>
+  </div>
+</div>
+
+<div class="big-overlay hidden" id="roundOverlay">
+  <div class="ov-title" id="roTitle"></div>
+  <div class="ov-sub" id="roSub"></div>
+  <div class="result-stats hidden" id="resultStats">
+    <div class="rs-chip"><span class="rsc-l">🏆 ENG YAXSHI</span><span class="rsc-v gold" id="rsBest">0</span></div>
+    <div class="rs-chip"><span class="rsc-l">🔥 STREAK</span><span class="rsc-v purple" id="rsStreak">0</span></div>
+    <div class="rs-chip"><span class="rsc-l">📊 REYTING</span><span class="rsc-v blue" id="rsRating">0</span></div>
+  </div>
+  <button class="obtn" id="roBtn">DAVOM</button>
+  <button class="obtn red hidden" id="roMenuBtn">✕ Menyu</button>
+</div>
+
+<script src="robot.js"></script>
+</body>
+</html>

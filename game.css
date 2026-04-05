@@ -1,0 +1,579 @@
+    :root {
+        --neon: #00f5ff;
+        --pink: #ff2d78;
+        --gold: #ffd700;
+        --dark: #050a18;
+        --card: #0d1b2e;
+        --glass: rgba(0, 245, 255, 0.05);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Exo 2', sans-serif;
+        background: var(--dark);
+        color: #fff;
+        min-height: 100vh;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(0, 245, 255, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(255, 45, 120, 0.08) 0%, transparent 50%);
+        animation: bgPulse 8s ease-in-out infinite alternate;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    @keyframes bgPulse {
+        0% {
+            opacity: .6
+        }
+
+        100% {
+            opacity: 1
+        }
+    }
+
+    .yulduzlar {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .yulduz {
+        position: absolute;
+        border-radius: 50%;
+        background: #fff;
+        animation: yulduzYon linear infinite;
+    }
+
+    @keyframes yulduzYon {
+
+        0%,
+        100% {
+            opacity: .1;
+            transform: scale(1)
+        }
+
+        50% {
+            opacity: .9;
+            transform: scale(1.4)
+        }
+    }
+
+    /* HEADER */
+    header {
+        position: relative;
+        z-index: 10;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0, 245, 255, 0.12);
+        backdrop-filter: blur(10px);
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-family: 'Orbitron', monospace;
+        font-size: 1.8rem;
+        font-weight: 900;
+        letter-spacing: 4px;
+        background: linear-gradient(135deg, var(--neon), var(--pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 18px rgba(0, 245, 255, 0.5));
+    }
+
+    .logo span {
+        background: linear-gradient(135deg, var(--gold), #ff8c00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .header-ong {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .asosiy-btn {
+        background: linear-gradient(135deg, var(--neon), #0080ff);
+        border: none;
+        padding: 10px 22px;
+        border-radius: 50px;
+        color: #000;
+        font-family: 'Orbitron', monospace;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .asosiy-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(0, 245, 255, 0.7);
+    }
+
+    .asosiy-btn:active {
+        transform: scale(0.97);
+    }
+
+    .jonli-belgi {
+        background: linear-gradient(135deg, var(--pink), #a200ff);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        box-shadow: 0 0 20px rgba(255, 45, 120, 0.4);
+        animation: belgiPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes belgiPulse {
+
+        0%,
+        100% {
+            box-shadow: 0 0 20px rgba(255, 45, 120, 0.4)
+        }
+
+        50% {
+            box-shadow: 0 0 35px rgba(255, 45, 120, 0.8)
+        }
+    }
+
+    /* QIDIRUV */
+    .qidiruv-wrap {
+        position: relative;
+        z-index: 10;
+        padding: 24px 30px 0;
+    }
+
+    .qidiruv-wrap input {
+        width: 100%;
+        max-width: 480px;
+        background: var(--glass);
+        border: 1px solid rgba(0, 245, 255, 0.2);
+        border-radius: 50px;
+        padding: 13px 22px 13px 48px;
+        color: #fff;
+        font-family: 'Exo 2', sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        transition: all 0.3s;
+        backdrop-filter: blur(8px);
+    }
+
+    .qidiruv-wrap input:focus {
+        border-color: var(--neon);
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+    }
+
+    .qidiruv-wrap input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .qidiruv-icon {
+        position: absolute;
+        left: 46px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        opacity: .5;
+    }
+
+    /* BO'LIM SARLAVHASI */
+    .bolim-sarlavha {
+        position: relative;
+        z-index: 10;
+        padding: 28px 30px 14px;
+        font-family: 'Orbitron', monospace;
+        font-size: 0.72rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--neon);
+        opacity: .7;
+    }
+
+    /* KATEGORIYALAR */
+    .kategoriyalar {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        gap: 9px;
+        padding: 0 30px 22px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .kategoriyalar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .kat-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.5);
+        padding: 7px 18px;
+        border-radius: 50px;
+        font-family: 'Exo 2', sans-serif;
+        font-size: 0.78rem;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.25s;
+    }
+
+    .kat-btn.faol,
+    .kat-btn:hover {
+        background: linear-gradient(135deg, var(--neon), #0080ff);
+        border-color: transparent;
+        color: #000;
+        font-weight: 700;
+        box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+    }
+
+    /* TANLANGAN O'YIN */
+    .tanlangan {
+        position: relative;
+        z-index: 10;
+        margin: 0 30px;
+        border-radius: 22px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0a1628, #1a0a2e);
+        border: 1px solid rgba(0, 245, 255, 0.15);
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 30px 24px;
+        text-align: center;
+    }
+
+    .tanlangan:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 60px rgba(0, 245, 255, 0.15);
+    }
+
+    .tanlangan-img {
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+        border-radius: 20px;
+        filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.5));
+        animation: suzish 3s ease-in-out infinite;
+    }
+
+    @keyframes suzish {
+
+        0%,
+        100% {
+            transform: translateY(0)
+        }
+
+        50% {
+            transform: translateY(-10px)
+        }
+    }
+
+    .tanlangan h2 {
+        font-family: 'Orbitron', monospace;
+        font-size: 1.8rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #fff, var(--neon));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+    }
+
+    .tanlangan p {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.88rem;
+        margin-bottom: 14px;
+        line-height: 1.6;
+    }
+
+    .tanlangan-meta {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .reyting {
+        color: var(--gold);
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .tur-belgi {
+        background: rgba(0, 245, 255, 0.1);
+        border: 1px solid rgba(0, 245, 255, 0.3);
+        padding: 3px 14px;
+        border-radius: 20px;
+        font-size: 0.72rem;
+        color: var(--neon);
+    }
+
+    .oyna-btn {
+        background: linear-gradient(135deg, var(--neon), #0080ff);
+        border: none;
+        padding: 14px 40px;
+        border-radius: 50px;
+        color: #000;
+        font-family: 'Orbitron', monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
+        margin-top: 6px;
+    }
+
+    .oyna-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(0, 245, 255, 0.7);
+    }
+
+    .oyna-btn:active {
+        transform: scale(0.96);
+    }
+
+    /* O'YINLAR PANJARASI */
+    .panjara {
+        position: relative;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+        padding: 0 30px 30px;
+    }
+
+    .karta {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 18px;
+        padding: 22px 16px;
+        cursor: pointer;
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        animation: kartaKirish 0.5s ease backwards;
+    }
+
+    .karta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, transparent, rgba(0, 245, 255, 0.04));
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .karta:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(0, 245, 255, 0.35);
+        box-shadow: 0 12px 40px rgba(0, 245, 255, 0.12);
+    }
+
+    .karta:hover::before {
+        opacity: 1;
+    }
+
+    .karta:active {
+        transform: scale(0.96);
+    }
+
+    @keyframes kartaKirish {
+        from {
+            opacity: 0;
+            transform: translateY(20px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    .karta-img {
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+        border-radius: 14px;
+        display: block;
+        margin: 0 auto 12px;
+        transition: transform 0.3s, filter 0.3s;
+    }
+
+    .karta:hover .karta-img {
+        transform: scale(1.15) rotate(-5deg);
+        filter: drop-shadow(0 0 16px rgba(0, 245, 255, 0.5));
+    }
+
+    .karta h3 {
+        font-family: 'Orbitron', monospace;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+
+    .karta h6 {
+        font-size: 0.66rem;
+        color: rgba(255, 255, 255, 0.35);
+        margin-bottom: 10px;
+        font-weight: 400;
+    }
+
+    .karta-yulduz {
+        color: var(--gold);
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+    }
+
+    .karta-oyna {
+        margin-top: 12px;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(0, 128, 255, 0.1));
+        border: 1px solid rgba(0, 245, 255, 0.2);
+        color: var(--neon);
+        font-family: 'Orbitron', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+        padding: 9px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .karta-oyna:hover {
+        background: linear-gradient(135deg, var(--neon), #0080ff);
+        color: #000;
+        border-color: transparent;
+        box-shadow: 0 0 18px rgba(0, 245, 255, 0.4);
+    }
+
+    .karta-oyna:active {
+        transform: scale(0.97);
+    }
+
+    /* TOPILMADI */
+    .topilmadi {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 50px 20px;
+        color: rgba(255, 255, 255, 0.25);
+        font-family: 'Orbitron', monospace;
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+    }
+
+    /* RIPPLE */
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(0, 245, 255, 0.22);
+        animation: rippleChiq 0.6s ease-out forwards;
+        pointer-events: none;
+        z-index: 99;
+    }
+
+    @keyframes rippleChiq {
+        from {
+            transform: scale(0);
+            opacity: 1
+        }
+
+        to {
+            transform: scale(4);
+            opacity: 0
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(0, 245, 255, 0.2);
+        border-radius: 4px;
+    }
+
+    @media(max-width:768px) {
+        header {
+            padding: 16px 18px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+        }
+
+        .qidiruv-wrap,
+        .bolim-sarlavha,
+        .panjara,
+        .kategoriyalar {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .qidiruv-icon {
+            left: 32px;
+        }
+
+        .tanlangan {
+            margin: 0 16px;
+        }
+
+        .panjara {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .asosiy-btn {
+            font-size: 0.65rem;
+            padding: 8px 14px;
+        }
+
+        .tanlangan h2 {
+            font-size: 1.3rem;
+        }
+
+        .tanlangan-img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    @media(min-width:1200px) {
+        .panjara {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }

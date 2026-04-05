@@ -1,0 +1,144 @@
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
+
+  :root {
+    --bg: #0d0d1a;
+    --orange: #ff6b1a;
+    --gold: #ffd700;
+    --red: #ff3333;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    touch-action: none;
+  }
+
+  #topBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 18px;
+    z-index: 10;
+    background: rgba(13,13,26,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,107,26,0.2);
+    flex-shrink: 0;
+  }
+
+  #homeBtn {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'Fredoka One', cursive; font-size: 14px; color: #fff;
+    background: linear-gradient(135deg, #ff6b1a, #cc3300);
+    border: none; padding: 8px 16px; border-radius: 22px;
+    cursor: pointer; box-shadow: 0 0 16px rgba(255,107,26,0.5);
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #homeBtn:hover { transform: scale(1.06); box-shadow: 0 0 24px rgba(255,107,26,0.85); }
+
+  #scoreBoard { display: flex; align-items: center; gap: 7px; }
+  #scoreLabel {
+    font-family: 'Fredoka One', cursive; font-size: 13px;
+    color: rgba(255,255,255,0.5); letter-spacing: 1px;
+  }
+  #scoreDisplay {
+    font-family: 'Fredoka One', cursive; font-size: 32px;
+    color: var(--gold); text-shadow: 0 0 18px rgba(255,215,0,0.8);
+    min-width: 40px; text-align: center; transition: transform 0.15s;
+  }
+  #scoreDisplay.bump { transform: scale(1.5); }
+
+  #levelDisplay {
+    display: flex; align-items: center; gap: 5px;
+    font-family: 'Fredoka One', cursive; font-size: 13px;
+    color: var(--orange); background: rgba(255,107,26,0.12);
+    padding: 5px 12px; border-radius: 14px;
+    border: 1px solid rgba(255,107,26,0.3);
+  }
+
+  #gameCanvas { display: block; cursor: crosshair; }
+
+  #niceShot {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%,-60%) scale(0);
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(28px, 6vw, 54px);
+    color: var(--gold);
+    text-shadow: 0 0 32px rgba(255,215,0,0.9), 0 0 64px rgba(255,215,0,0.4);
+    pointer-events: none; z-index: 100; white-space: nowrap;
+  }
+  #niceShot.show { animation: niceShotAnim 1.3s ease-out forwards; }
+  @keyframes niceShotAnim {
+    0%   { transform:translate(-50%,-60%) scale(0) rotate(-6deg); opacity:0; }
+    20%  { transform:translate(-50%,-60%) scale(1.14) rotate(2deg); opacity:1; }
+    45%  { transform:translate(-50%,-60%) scale(1) rotate(0); opacity:1; }
+    75%  { transform:translate(-50%,-60%) scale(1); opacity:1; }
+    100% { transform:translate(-50%,-82%) scale(0.8); opacity:0; }
+  }
+
+  #streakMsg {
+    position: fixed; top: 38%; left: 50%;
+    transform: translateX(-50%) scale(0);
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(17px, 4vw, 30px); color: #ff6b1a;
+    text-shadow: 0 0 22px rgba(255,107,26,0.9);
+    pointer-events: none; z-index: 100; opacity:0;
+  }
+  #streakMsg.show { animation: streakAnim 1.4s ease-out forwards; }
+  @keyframes streakAnim {
+    0%   { transform:translateX(-50%) scale(0); opacity:0; }
+    25%  { transform:translateX(-50%) scale(1.06); opacity:1; }
+    70%  { transform:translateX(-50%) scale(1); opacity:1; }
+    100% { transform:translateX(-50%) scale(0.9); opacity:0; }
+  }
+
+  .particle {
+    position: fixed; border-radius: 50%;
+    pointer-events: none; z-index: 99;
+    animation: particleFly 1s ease-out forwards;
+  }
+  @keyframes particleFly {
+    0%   { transform:translate(0,0) scale(1); opacity:1; }
+    100% { transform:translate(var(--dx),var(--dy)) scale(0); opacity:0; }
+  }
+
+  #restartBtn {
+    position: fixed; bottom: 20px; right: 16px;
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'Fredoka One', cursive; font-size: 13px; color:#fff;
+    background: rgba(255,107,26,0.18);
+    border: 1px solid rgba(255,107,26,0.4);
+    padding: 9px 16px; border-radius: 22px;
+    cursor: pointer; z-index: 10;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  #restartBtn:hover { background:rgba(255,107,26,0.4); box-shadow:0 0 16px rgba(255,107,26,0.55); }
+
+  #hint {
+    position: fixed; bottom: 62px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: rgba(255,255,255,0.28);
+    pointer-events: none; transition: opacity 0.6s; white-space: nowrap;
+  }
+
+  /* Saved level badge */
+  #savedBadge {
+    position: fixed; top: 70px; right: 16px;
+    font-family: 'Fredoka One', cursive; font-size: 11px;
+    color: rgba(255,215,0,0.7);
+    background: rgba(255,215,0,0.08);
+    border: 1px solid rgba(255,215,0,0.2);
+    padding: 4px 10px; border-radius: 10px;
+    pointer-events: none; z-index: 10;
+    opacity: 0; transition: opacity 0.4s;
+  }
+  #savedBadge.show { opacity: 1; }

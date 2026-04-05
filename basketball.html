@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basketball Mini-Game</title>
+<link rel="stylesheet" href="basketball.css">
+</head>
+<body>
+
+<div id="topBar">
+  <!-- ✅ game.html ga o'zgartirildi -->
+  <a href="game.html" id="homeBtn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/>
+      <path d="M9 21V12h6v9"/>
+    </svg>
+    Asosiy Sahifa
+  </a>
+  <div id="scoreBoard">
+    <span id="scoreLabel">BALL</span>
+    <span id="scoreDisplay">0</span>
+  </div>
+  <div id="levelDisplay">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="#ffd700" stroke="#ffd700" stroke-width="1.5">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+    </svg>
+    <span id="lvlText">Level 1</span>
+  </div>
+</div>
+
+<canvas id="gameCanvas"></canvas>
+
+<div id="niceShot">🏀 Ajoyib!</div>
+<div id="streakMsg"></div>
+<div id="savedBadge">💾 Saqlandi</div>
+
+<div id="hint">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 11V6a2 2 0 0 0-4 0v0M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8"/>
+    <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2a8 8 0 0 1-7.4-4.9L3 18c-.7-1.8.4-3 2-3h1l1 .5"/>
+  </svg>
+  Suring va qo'ying
+</div>
+
+<button id="restartBtn">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="23 4 23 10 17 10"/>
+    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+  </svg>
+  Qayta boshlash
+</button>
+
+<script src="basketball.js"></script>
+</body>
+</html>

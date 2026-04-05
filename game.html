@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixo Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+<div class="yulduzlar" id="yulduzlar"></div>
+
+<header>
+  <h1 class="logo">Pix<span>O</span> O'yinlar</h1>
+  <div class="header-ong">
+    <a class="asosiy-btn" href="dashboard.html" id="asosiyBtn">🏠 Asosiy Sahifa</a>
+    <div class="jonli-belgi">🎮 JONLI</div>
+  </div>
+</header>
+
+<div class="qidiruv-wrap">
+  <span class="qidiruv-icon">🔍</span>
+  <input type="text" id="qidiruvInput" placeholder="O'yin qidirish..." oninput="qidirOyinlar()"/>
+</div>
+
+<div class="bolim-sarlavha">Kategoriyalar</div>
+<div class="kategoriyalar" id="kategoriyalar">
+  <button class="kat-btn faol" onclick="katFilter('Barchasi',this)">🎯 Barchasi</button>
+  <button class="kat-btn" onclick="katFilter('Aksiya',this)">⚔️ Aksiya</button>
+  <button class="kat-btn" onclick="katFilter('Sport',this)">⚽ Sport</button>
+  <button class="kat-btn" onclick="katFilter('Strategiya',this)">🏰 Strategiya</button>
+  <button class="kat-btn" onclick="katFilter('Sarguzasht',this)">🗺️ Sarguzasht</button>
+</div>
+
+<!-- TANLANGAN O'YIN -->
+<div class="tanlangan" id="tanlanganKarta">
+  <img src="dragon.png" alt="Dragon Quest" class="tanlangan-img"/>
+  <div>
+    <h2>Dragon Quest</h2>
+    <p>Ajdaholar dunyosida epik sarguzasht! Kuchli maxluqlarni yeng va qirollikni qutqar.</p>
+    <div class="tanlangan-meta">
+      <span class="reyting">★★★★★ 4.9</span>
+      <span class="tur-belgi">Sarguzasht</span>
+      <span class="tur-belgi">RPG</span>
+    </div>
+  </div>
+  <button class="oyna-btn" id="tanlanganOynaBtn">▶ O'YNASH</button>
+</div>
+
+<div class="bolim-sarlavha">Barcha O'yinlar</div>
+<div class="panjara" id="oyinlarPanjara"></div>
+
+<script src="game.js"></script>
+</body>
+</html>

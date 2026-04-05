@@ -1,0 +1,399 @@
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #00cfff;
+    --orange: #ff6b35;
+    --bg: #050a14;
+    --panel: rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.08);
+    --glow-blue: 0 0 20px #00cfff88, 0 0 60px #00cfff33;
+    --glow-orange: 0 0 20px #ff6b3588, 0 0 60px #ff6b3533;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--bg);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 85%, rgba(255,255,255,0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 1;
+  }
+  .page.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.96);
+  }
+
+  /* ===== BOSH SAHIFA ===== */
+  .index-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, var(--blue), #fff, var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 0.1em;
+    animation: logoGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes logoGlow {
+    from { filter: drop-shadow(0 0 10px #00cfff66); }
+    to   { filter: drop-shadow(0 0 30px #ff6b3566); }
+  }
+
+  .index-sub {
+    font-size: clamp(0.75rem, 2.5vw, 1rem);
+    letter-spacing: 0.5em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    font-family: 'Orbitron', monospace;
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: clamp(110px, 22vw, 160px);
+    margin-bottom: 2.5rem;
+    opacity: 0.35;
+  }
+  .preview-cell {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .preview-cell svg { width: 60%; height: 60%; }
+
+  /* Tugmalar guruhi */
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* ASOSIY SAHIFA tugmasi */
+  .btn-main {
+    width: 100%;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.75rem, 2.2vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--blue), #0090cc);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--glow-blue);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 0.75rem;
+  }
+  .btn-main::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 40%; height: 200%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+  }
+  .btn-main:hover::before { left: 140%; }
+  .btn-main:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px #00cfff, 0 0 80px #00cfff66;
+  }
+  .btn-main:active { transform: translateY(0); }
+
+  .divider {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.3em;
+    margin-bottom: 0.75rem;
+  }
+
+  /* O'YINNI BOSHLASH tugmasi */
+  .btn-start {
+    width: 100%;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.75rem, 2.2vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: rgba(255,255,255,0.75);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+  .btn-start:hover {
+    color: #fff;
+    border-color: var(--orange);
+    box-shadow: 0 0 20px #ff6b3566, 0 0 60px #ff6b3522;
+    background: rgba(255,107,53,0.06);
+    transform: translateY(-2px);
+  }
+  .btn-start:active { transform: translateY(0); }
+
+  /* ===== O'YIN SAHIFASI ===== */
+  .game-wrapper {
+    width: 100%;
+    max-width: 480px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .game-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .btn-home {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.45);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-home:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .game-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.75rem, 3vw, 1rem);
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    background: linear-gradient(135deg, var(--blue), #fff, var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .spacer { width: 80px; }
+
+  .scoreboard {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .score-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  .score-card.active-x { border-color: var(--blue);   box-shadow: var(--glow-blue); }
+  .score-card.active-o { border-color: var(--orange);  box-shadow: var(--glow-orange); }
+
+  .score-player-name {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    margin-bottom: 0.2em;
+  }
+  .score-player-name.x-color { color: var(--blue); }
+  .score-player-name.o-color { color: var(--orange); }
+
+  .score-num {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    color: #fff;
+  }
+  .score-sub {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    margin-top: 0.1em;
+  }
+  .vs-badge {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+  }
+
+  .status-bar {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.65rem, 2.2vw, 0.85rem);
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    min-height: 1.5em;
+    transition: color 0.3s;
+  }
+  .status-bar.x-turn   { color: var(--blue);   text-shadow: 0 0 15px var(--blue); }
+  .status-bar.o-turn   { color: var(--orange);  text-shadow: 0 0 15px var(--orange); }
+  .status-bar.win-msg  { color: #fff; animation: popIn 0.4s ease; }
+  .status-bar.draw-msg { color: rgba(255,255,255,0.6); animation: popIn 0.4s ease; }
+  @keyframes popIn {
+    0%   { transform: scale(0.85); opacity: 0; }
+    100% { transform: scale(1);    opacity: 1; }
+  }
+
+  .grid-container {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  .grid {
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .cell {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+  }
+  .cell:hover:not(.taken) {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .cell:active:not(.taken) { transform: scale(0.95); }
+  .cell.taken { cursor: default; }
+
+  .cell svg {
+    width: 55%; height: 55%;
+    opacity: 0;
+    transform: scale(0.3) rotate(-15deg);
+    transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1),
+                transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .cell.show svg { opacity: 1; transform: scale(1) rotate(0deg); }
+  .cell.win-cell { animation: winPulse 0.6s ease forwards; }
+  @keyframes winPulse {
+    0%  { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100%{ transform: scale(1); }
+  }
+
+  .win-line-svg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 2; opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .win-line-svg.visible { opacity: 1; }
+  .win-line-path {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawLine 0.55s ease forwards 0.15s;
+  }
+  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+
+  .btn-restart {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.65rem, 2vw, 0.8rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.65);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.13);
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-restart:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px rgba(255,255,255,0.08);
+  }
+
+  .grid.draw { animation: shake 0.5s ease; }
+  @keyframes shake {
+    0%,100%{ transform: translateX(0); }
+    20%{ transform: translateX(-8px); }
+    40%{ transform: translateX(8px); }
+    60%{ transform: translateX(-5px); }
+    80%{ transform: translateX(5px); }
+  }
+
+  @media (max-width: 400px) {
+    .game-wrapper { padding: 1rem; gap: 1rem; }
+    .btn-group { max-width: 240px; }
+  }

@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X va 0 O'yini</title>
+<link rel="stylesheet" href="xo.css">
+</head>
+<body>
+
+<!-- ===== BOSH SAHIFA ===== -->
+<div class="page" id="indexPage">
+  <div class="index-logo">X va 0</div>
+  <div class="index-sub">Neon O'yini</div>
+
+  <div class="preview-grid">
+    <div class="preview-cell">
+      <svg viewBox="0 0 40 40" fill="none">
+        <line x1="8" y1="8" x2="32" y2="32" stroke="#00cfff" stroke-width="4.5" stroke-linecap="round"/>
+        <line x1="32" y1="8" x2="8" y2="32" stroke="#00cfff" stroke-width="4.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="preview-cell"></div>
+    <div class="preview-cell">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="12" stroke="#ff6b35" stroke-width="4.5"/>
+      </svg>
+    </div>
+    <div class="preview-cell"></div>
+    <div class="preview-cell">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="12" stroke="#ff6b35" stroke-width="4.5"/>
+      </svg>
+    </div>
+    <div class="preview-cell"></div>
+    <div class="preview-cell">
+      <svg viewBox="0 0 40 40" fill="none">
+        <line x1="8" y1="8" x2="32" y2="32" stroke="#00cfff" stroke-width="4.5" stroke-linecap="round"/>
+        <line x1="32" y1="8" x2="8" y2="32" stroke="#00cfff" stroke-width="4.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="preview-cell"></div>
+    <div class="preview-cell">
+      <svg viewBox="0 0 40 40" fill="none">
+        <line x1="8" y1="8" x2="32" y2="32" stroke="#00cfff" stroke-width="4.5" stroke-linecap="round"/>
+        <line x1="32" y1="8" x2="8" y2="32" stroke="#00cfff" stroke-width="4.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <a class="btn-main" href="game.html">🏠 ASOSIY SAHIFA</a>
+    <div class="divider">yoki</div>
+    <button class="btn-start" onclick="startGame()">▶ O'YINNI BOSHLASH</button>
+  </div>
+</div>
+
+<!-- ===== O'YIN SAHIFASI ===== -->
+<div class="page hidden" id="gamePage">
+  <div class="game-wrapper">
+
+    <div class="game-header">
+      <button class="btn-home" onclick="goHome()">← BOSH SAHIFA</button>
+      <div class="game-title">X va 0</div>
+      <div class="spacer"></div>
+    </div>
+
+    <div class="scoreboard">
+      <div class="score-card active-x" id="cardX">
+        <div class="score-player-name x-color">
+          <svg width="15" height="15" viewBox="0 0 40 40" fill="none">
+            <line x1="6" y1="6" x2="34" y2="34" stroke="#00cfff" stroke-width="5" stroke-linecap="round"/>
+            <line x1="34" y1="6" x2="6" y2="34" stroke="#00cfff" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          O'YINCHI
+        </div>
+        <div class="score-num" id="scoreX">0</div>
+        <div class="score-sub">g'alaba</div>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="score-card" id="cardO">
+        <div class="score-player-name o-color">
+          <svg width="15" height="15" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="13" stroke="#ff6b35" stroke-width="5"/>
+          </svg>
+          O'YINCHI
+        </div>
+        <div class="score-num" id="scoreO">0</div>
+        <div class="score-sub">g'alaba</div>
+      </div>
+    </div>
+
+    <div class="status-bar x-turn" id="statusBar">X O'YINCHI — SIZNING NAVBATINGIZ</div>
+
+    <div class="grid-container">
+      <div class="grid" id="grid">
+        <div class="cell" data-i="0" onclick="handleClick(0)"></div>
+        <div class="cell" data-i="1" onclick="handleClick(1)"></div>
+        <div class="cell" data-i="2" onclick="handleClick(2)"></div>
+        <div class="cell" data-i="3" onclick="handleClick(3)"></div>
+        <div class="cell" data-i="4" onclick="handleClick(4)"></div>
+        <div class="cell" data-i="5" onclick="handleClick(5)"></div>
+        <div class="cell" data-i="6" onclick="handleClick(6)"></div>
+        <div class="cell" data-i="7" onclick="handleClick(7)"></div>
+        <div class="cell" data-i="8" onclick="handleClick(8)"></div>
+      </div>
+      <svg class="win-line-svg" id="winLineSvg" viewBox="0 0 380 380" preserveAspectRatio="none">
+        <line id="winLine" class="win-line-path"
+              x1="0" y1="0" x2="0" y2="0"
+              stroke="white" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <button class="btn-restart" onclick="restartGame()">↺ &nbsp;QAYTA BOSHLASH</button>
+
+  </div>
+</div>
+
+<script src="xo.js"></script>
+</body>
+</html>

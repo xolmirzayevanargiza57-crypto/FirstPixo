@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixo AI — Reytingi</title>
+<link rel="stylesheet" href="devai.css">  
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <div class="brand-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#fff" opacity="0.9"/>
+        <path d="M2 17l10 5 10-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M2 12l10 5 10-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="brand-name">PIXO AI</div>
+  </div>
+  <a href="dashboard.html" class="home-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    Asosiy Sahifa
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pill">
+    <span></span>
+    Jonli reyting · 2026
+  </div>
+  <h1>AI REYTINGI</h1>
+  <p>Eng kuchli sun'iy intellektlar — 1 dan 100 gacha ball</p>
+</section>
+
+<!-- CARDS -->
+<div class="container">
+  <div class="sec-label">
+    <div class="sec-label-text">🏆 Top o'rinlar</div>
+    <div class="sec-label-line"></div>
+  </div>
+  <div id="ai-list"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="overlay" onclick="closeOut(event)">
+  <div class="modal" id="modal">
+    <div class="modal-stripe"></div>
+    <div class="modal-body">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-head">
+        <div class="modal-icon" id="mIcon"></div>
+        <div>
+          <div class="modal-ai-name" id="mName"></div>
+          <div class="modal-ai-feature" id="mFeat"></div>
+        </div>
+      </div>
+      <div class="m-sec">📲 Yuklab olish</div>
+      <div class="platforms" id="mPlatforms"></div>
+      <div class="copy-box">
+        <div class="m-sec" style="margin-bottom:10px">🔗 Nusxa olish</div>
+        <div id="mCopies"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="devai.js"></script>
+</body>
+</html>

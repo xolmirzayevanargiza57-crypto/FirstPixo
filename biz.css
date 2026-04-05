@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #090909, #1a1a1a);
+    color: #fff;
+  }
+
+  #about-us {
+    padding: 100px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s;
+  }
+
+  h2 {
+    font-size: 52px;
+    margin-bottom: 15px;
+    color: #fff;
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: #ff3c78;
+    margin-top: 15px;
+    border-radius: 3px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #fff;
+  }
+
+  strong {
+    color: #ff3c78;
+  }
+
+  /* Animatsiya */
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    h2 { font-size: 36px; }
+    p { font-size: 16px; }
+  }
+  
+  button:active {
+    transform: scale(0.9);
+  }

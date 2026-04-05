@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixo Code — AI Prompt Manager</title>
+  <link rel="stylesheet" href="code.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="14" height="14" rx="3" fill="#00e5ff"/>
+          <rect x="20" y="2" width="14" height="14" rx="3" fill="#7c3aed"/>
+          <rect x="2" y="20" width="14" height="14" rx="3" fill="#7c3aed"/>
+          <rect x="20" y="20" width="14" height="14" rx="3" fill="#00e5ff" opacity="0.5"/>
+        </svg>
+        <span class="brand-name">Pixo<span class="brand-accent">Code</span></span>
+      </div>
+      <button class="nav-btn" onclick="window.location.href='dashboard.html'">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="12" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="1" y="12" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="12" y="12" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        Asosiy Sahifa
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <p class="hero-sub">Barcha AI kod promptlaringiz — bir joyda</p>
+    <h1 class="hero-title">AI Promptlarni<br/><span class="gradient-text">Boshqaring</span></h1>
+    <p class="hero-desc">Professional dasturchilar uchun ishlab chiqilgan prompt kutubxonasi. Bir klik bilan nusxalang.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">12</span><span class="stat-label">Promptlar</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Ishlatish</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">1</span><span class="stat-label">Klik</span></div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="9" cy="9" r="6" stroke="#666" stroke-width="1.8"/>
+        <path d="M13.5 13.5L17 17" stroke="#666" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Promptlarni qidiring..." oninput="filterPrompts()" />
+    </div>
+    <div class="filter-tabs">
+      <button class="tab active" onclick="filterByTag('all', this)">Barchasi</button>
+      <button class="tab" onclick="filterByTag('frontend', this)">Frontend</button>
+      <button class="tab" onclick="filterByTag('backend', this)">Backend</button>
+      <button class="tab" onclick="filterByTag('debug', this)">Debug</button>
+      <button class="tab" onclick="filterByTag('review', this)">Review</button>
+    </div>
+  </div>
+
+  <!-- PROMPT GRID -->
+  <main class="grid-wrap">
+    <div class="prompt-grid" id="promptGrid"></div>
+    <p class="empty-msg" id="emptyMsg" style="display:none;">Hech narsa topilmadi 🔍</p>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div class="modal-tag" id="modalTag"></div>
+        <button class="modal-close" onclick="closeModal()" aria-label="Yopish">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-name" id="modalName"></p>
+      <div class="modal-body">
+        <pre class="prompt-text" id="modalText"></pre>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-copy" id="copyBtn" onclick="copyPrompt()">
+          <svg viewBox="0 0 20 20" fill="none">
+            <rect x="7" y="7" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M13 7V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span id="copyBtnText">Nusxalash</span>
+        </button>
+        <button class="btn-cancel" onclick="closeModal()">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Bekor qilish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <svg viewBox="0 0 20 20" fill="none">
+      <circle cx="10" cy="10" r="8" stroke="#00e5ff" stroke-width="1.8"/>
+      <path d="M6.5 10l2.5 2.5 4.5-4.5" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Nusxalandi!
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+        <rect x="1" y="1" width="9" height="9" rx="2" fill="#00e5ff" opacity="0.7"/>
+        <rect x="14" y="1" width="9" height="9" rx="2" fill="#7c3aed" opacity="0.7"/>
+        <rect x="1" y="14" width="9" height="9" rx="2" fill="#7c3aed" opacity="0.7"/>
+        <rect x="14" y="14" width="9" height="9" rx="2" fill="#00e5ff" opacity="0.4"/>
+      </svg>
+      <span>PixoCode &copy; 2026</span>
+    </div>
+    <p class="footer-note">Professional AI prompt kutubxonasi</p>
+  </footer>
+
+  <script src="code.js"></script>
+</body>
+</html>

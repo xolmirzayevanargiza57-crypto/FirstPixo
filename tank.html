@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Tank Urushi</title>
+<link rel="stylesheet" href="tank.css">
+</head>
+<body>
+
+<!-- ══════ MENU ══════ -->
+<div id="menuScreen">
+  <div class="menu-title">TANK URUSHI</div>
+  <div class="menu-sub">2 O'yinchi · 2D Jangi</div>
+
+  <div class="tank-preview">
+    <!-- P1 tank SVG -->
+    <svg width="60" height="60" viewBox="-30 -30 60 60">
+      <rect x="-18" y="-12" width="36" height="24" rx="4" fill="#00ff88" opacity=".9"/>
+      <rect x="-14" y="-18" width="28" height="8" rx="2" fill="#00cc66"/>
+      <rect x="-22" y="-14" width="8" height="28" rx="3" fill="#009944"/>
+      <rect x="14" y="-14" width="8" height="28" rx="3" fill="#009944"/>
+      <circle cx="0" cy="0" r="7" fill="#00aa55"/>
+      <rect x="0" y="-20" width="5" height="22" rx="2" fill="#00ff88"/>
+    </svg>
+    <!-- P2 tank SVG -->
+    <svg width="60" height="60" viewBox="-30 -30 60 60">
+      <rect x="-18" y="-12" width="36" height="24" rx="4" fill="#ff3355" opacity=".9"/>
+      <rect x="-14" y="-18" width="28" height="8" rx="2" fill="#cc2244"/>
+      <rect x="-22" y="-14" width="8" height="28" rx="3" fill="#991133"/>
+      <rect x="14" y="-14" width="8" height="28" rx="3" fill="#991133"/>
+      <circle cx="0" cy="0" r="7" fill="#aa2244"/>
+      <rect x="0" y="-20" width="5" height="22" rx="2" fill="#ff3355"/>
+    </svg>
+  </div>
+
+  <button id="startBtn" onclick="startGame()">▶ BOSHLASH</button>
+
+<a href="game.html"><button id="startBtn">🏠 Asosiy Sahifa</button></a>
+  <div class="controls-hint">
+    <div>
+      <span>W A S D</span> — Harakat<br>
+      <span>SPACE</span> — O'q uzish<br>
+      <span style="color:var(--green)">■</span> 1-O'yinchi
+    </div>
+    <div>
+      <span class="p2c">↑ ↓ ← →</span> — Harakat<br>
+      <span class="p2c">ENTER</span> — O'q uzish<br>
+      <span style="color:var(--red)">■</span> 2-O'yinchi
+    </div>
+  </div>
+</div>
+
+<!-- ══════ GAME ══════ -->
+<div id="gameScreen">
+  <div id="hud">
+    <div class="hud-player p1">
+      <div class="hud-name p1-name">O'YINCHI 1</div>
+      <div class="hp-bar-wrap">
+        <div class="hp-bar hp-bar-1" id="hp1Bar" style="width:100%"></div>
+      </div>
+      <div class="hp-text" id="hp1Text">100 HP</div>
+    </div>
+
+    <button id="restartBtn" onclick="backToMenu()">⟵ MENU</button>
+
+    <div class="hud-player p2">
+      <div class="hud-name p2-name">O'YINCHI 2</div>
+      <div class="hp-bar-wrap">
+        <div class="hp-bar hp-bar-2" id="hp2Bar" style="width:100%"></div>
+      </div>
+      <div class="hp-text" id="hp2Text">100 HP</div>
+    </div>
+  </div>
+
+  <div id="canvasWrap">
+    <canvas id="gameCanvas"></canvas>
+    <div id="winOverlay">
+      <div class="win-text" id="winText"></div>
+      <div class="win-sub">G'OLIB!</div>
+      <button class="win-restart" onclick="initGame()">↺ QAYTA BOSHLASH</button>
+    </div>
+  </div>
+
+  <!-- Mobile Controls -->
+  <div id="mobileControls">
+    <!-- P1 -->
+    <div class="mob-side">
+      <div class="dpad">
+        <button class="mb mb-u" id="mb-w">▲</button>
+        <button class="mb mb-l" id="mb-a">◀</button>
+        <button class="mb mb-r" id="mb-d">▶</button>
+        <button class="mb mb-d" id="mb-s">▼</button>
+      </div>
+      <button class="mb mb-fire mb-fire-1" id="mb-space">O'Q UZISH</button>
+    </div>
+    <!-- P2 -->
+    <div class="mob-side">
+      <div class="dpad">
+        <button class="mb mb-u" id="mb-up">▲</button>
+        <button class="mb mb-l" id="mb-left">◀</button>
+        <button class="mb mb-r" id="mb-right">▶</button>
+        <button class="mb mb-d" id="mb-down">▼</button>
+      </div>
+      <button class="mb mb-fire mb-fire-2" id="mb-enter">O'Q UZISH</button>
+    </div>
+  </div>
+</div>
+
+<script src="tank.js"></script>
+</body>
+</html>

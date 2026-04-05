@@ -1,0 +1,246 @@
+/* ========== RESET & BASE ========== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0a1a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 24px 16px;
+    background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+}
+
+/* ========== BACK BUTTON ========== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #cbd5e1;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ========== CARD ========== */
+.card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px 24px;
+    max-width: 480px;
+    margin: 0 auto;
+    backdrop-filter: blur(12px);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Yashirin dekorativ chiziq */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(167, 139, 250, 0.6),
+            rgba(96, 165, 250, 0.6),
+            transparent);
+}
+
+/* ========== SARLAVHA ========== */
+.card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ========== INFO ROW ========== */
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 10px;
+    transition: background 0.2s;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.info-row:last-child {
+    margin-bottom: 0;
+}
+
+.info-row:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* ========== ICON ========== */
+.icon {
+    flex-shrink: 0;
+    opacity: 0.75;
+    stroke: #94a3b8;
+    transition: stroke 0.3s;
+}
+
+/* ========== ACTIVE PLAN ========== */
+.active-plan {
+    background: rgba(74, 222, 128, 0.07);
+    border-color: rgba(74, 222, 128, 0.2);
+}
+
+.active-plan .icon {
+    stroke: #4ade80;
+    opacity: 1;
+}
+
+.active-plan span {
+    color: #4ade80;
+    font-weight: 600;
+}
+
+/* ========== EXPIRED ========== */
+.expired {
+    background: rgba(248, 113, 113, 0.07);
+    border-color: rgba(248, 113, 113, 0.2);
+}
+
+.expired .icon {
+    stroke: #f87171;
+    opacity: 1;
+}
+
+.expired span {
+    color: #f87171;
+    font-weight: 600;
+}
+
+/* ========== REMAINING VAQT ========== */
+#remaining {
+    background: rgba(167, 139, 250, 0.06);
+    border-color: rgba(167, 139, 250, 0.15);
+}
+
+#remaining .icon {
+    stroke: #a78bfa;
+    opacity: 1;
+}
+
+#remaining span {
+    color: #c4b5fd;
+}
+
+/* ========== FOYDALANILGAN ========== */
+#used {
+    background: rgba(96, 165, 250, 0.06);
+    border-color: rgba(96, 165, 250, 0.15);
+}
+
+#used .icon {
+    stroke: #60a5fa;
+    opacity: 1;
+}
+
+#used span {
+    color: #93c5fd;
+}
+
+/* ========== TUGASH SANASI ========== */
+#endDate {
+    background: rgba(251, 191, 36, 0.06);
+    border-color: rgba(251, 191, 36, 0.15);
+}
+
+#endDate .icon {
+    stroke: #fbbf24;
+    opacity: 1;
+}
+
+#endDate span {
+    color: #fde68a;
+}
+
+/* ========== PULSE ANIMATSIYA (faol plan) ========== */
+@keyframes pulse-green {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.15);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+}
+
+.active-plan {
+    animation: pulse-green 3s ease infinite;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 480px) {
+    body {
+        padding: 16px 12px;
+    }
+
+    .card {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .card h2 {
+        font-size: 17px;
+    }
+
+    .info-row {
+        font-size: 13px;
+        padding: 11px 13px;
+    }
+}
+
+body {
+    user-select: none;
+    /* Matn belgilashni bloklaydi */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}

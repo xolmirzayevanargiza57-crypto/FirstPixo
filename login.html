@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixo | Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="log">
+            <h1>
+                <svg class="thunder-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" fill="#FFD700" stroke="#FFA500" stroke-width="1.5"/>
+                </svg>
+                Pixo | Login
+            </h1>
+        </div>
+        
+        <div class="error" id="error-msg"></div>
+        
+        <input type="text" id="username" placeholder="Login" required>
+        
+        <input type="password" id="password" placeholder="Parol" required>
+        
+        <button id="loginBtn">Kirish</button>
+        <br>
+        <a href="sotib.html">
+            <button>Login va Parol sotib olish</button>
+        </a>
+        
+        <div class="logo-marquee">
+            <div class="logo-track">
+                <div class="logo">SchoolUZ</div>
+                <div class="logo">yaxshi AI</div>
+                <div class="logo">Pixo Course</div>
+                
+                <!-- Dublikat (loop uchun) -->
+                <div class="logo">SchoolUZ</div>
+                <div class="logo">yaxshi AI</div>
+                <div class="logo">Pixo Course</div> 
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
